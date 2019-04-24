@@ -9,8 +9,9 @@
   border-radius: 5px;
 }
 
-.Pokecard:hover {
-  box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);
+.Pokecard-image:hover {
+  transform: scale(1.2);
+  transition: all ease 500ms;
 }
 
 .Pokecard-data {

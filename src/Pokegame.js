@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Pokedex from './Pokedex';
+import './Pokegame.css';
 
 class Pokegame extends Component {
   static defaultProps = {
@@ -25,19 +26,18 @@ class Pokegame extends Component {
     }
 
     let exp1 = hand1.reduce((exp, pokemon) => exp + pokemon.exp, 0);
-    
     let exp2 = hand2.reduce((exp, pokemon) => exp + pokemon.exp, 0);
 
-    let winner1 = (exp1>exp2) ? "Winner!" : "Looser!";
-    let winner2 = (exp1<exp2) ? "Winner!" : "Looser!";
-    
+    let winner1 = (exp1>exp2) ? <h2 className="Pokegame-Winner">Winner!!!</h2> : <h2 className="Pokegame-Looser">Looser!!!</h2>;
+    let winner2 = (exp2>exp1) ? <h2 className="Pokegame-Winner">Winner!!!</h2> : <h2 className="Pokegame-Looser">Looser!!!</h2>;
+   
     return (
       <div className="Pokegame">
-        <h1>Pokegame !</h1>
-          <Pokedex pokemon={hand1} exp={exp1} /> 
-          <p>Total Experience: {exp1} {winner1}</p>  
-          <Pokedex pokemon={hand2} exp={exp2} />
-          <p>Total Experience: {exp2} {winner2}</p>          
+        <h1>Pokegame!</h1>
+          <Pokedex pokemon={hand1} /> 
+          <h2>Total Experience: {exp1}</h2> {winner1}
+          <Pokedex pokemon={hand2} />
+          <h2>Total Experience: {exp2}</h2> {winner2}          
       </div>
     );
   }
